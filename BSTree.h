@@ -1,7 +1,7 @@
 typedef struct node Node;
-typedef Node* Node_ptr;
+typedef struct node* Node_ptr;
 struct node{
-	void* data;
+	int data;
 	Node_ptr left;
 	Node_ptr right;
 };
@@ -13,5 +13,8 @@ struct tree
 	Node_ptr root;
 };
 BSTree createBSTree(void);
+Node_ptr createTreeNode(int data);
+
+Node_ptr insertNewNode(Node_ptr walker, int data);
 int insert(BSTree *, int);
 Node * find(BSTree, int);
