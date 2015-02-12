@@ -66,3 +66,34 @@ void test_insert_should_enter_next_element_to_the_left_of_root_if_number_is_same
 	assertEqual(bst.root->data, 10);
 	assertEqual(bst.root->right->data, 10);
 }
+
+void test_find_should_return_NULL_if_root_of_tree_is_NULL(){
+	bst = createBSTree();
+	assert(find(bst, 10) == NULL);
+}
+
+void test_find_should_return_root_if_given_data_is_in_root_of_tree(){
+	data = 10;
+	bst = createBSTree();
+	bst_ptr = &bst;
+	insert(bst_ptr, data);
+	assert(find(bst, data)->data == 10);
+}
+
+void test_find_should_return_right_node_of_root_if_data_is_greater_than_root_data(){
+	data = 10, data2 = 20;
+	bst = createBSTree();
+	bst_ptr = &bst;
+	insert(bst_ptr, data);
+	insert(bst_ptr, data2);
+	assert(find(bst, data2)->data == 20);
+}
+
+void test_find_should_return_left_node_of_root_if_data_is_greater_than_root_data(){
+	data = 50, data2 = 20;
+	bst = createBSTree();
+	bst_ptr = &bst;
+	insert(bst_ptr, data);
+	insert(bst_ptr, data2);
+	assert(find(bst, data2)->data == 20);
+}

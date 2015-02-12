@@ -17,9 +17,8 @@ Node_ptr createTreeNode(int data){
 }
 
 Node_ptr insertNewNode(Node_ptr walker, int data){
-	if(walker == NULL){
+	if(walker == NULL)
 		return createTreeNode(data);
-	}
 	if(data >= walker->data)
 		walker->right = insertNewNode(walker->right, data);		
 	else
@@ -34,4 +33,16 @@ int insert(BSTree * tree, int data){
 	}
 	insertNewNode(tree->root, data);
 	return 1;
+};
+
+Node_ptr search(Node_ptr root,int data){
+	if(root == NULL || root->data == data)
+		return root;
+	if(data > root->data)
+		return search(root->right, data);
+	return search(root->left,data);
+}
+
+Node * find(BSTree tree, int data){
+	return search(tree.root, data);
 };
