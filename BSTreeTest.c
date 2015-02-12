@@ -97,3 +97,30 @@ void test_find_should_return_left_node_of_root_if_data_is_greater_than_root_data
 	insert(bst_ptr, data2);
 	assert(find(bst, data2)->data == 20);
 }
+
+void test_find_should_return_node_with_6_value_if_we_pass_6_in_find(){
+	int key[8] = {12,8,14,6,9,13,15,16}, i;
+	bst = createBSTree();
+	bst_ptr = &bst;
+	for (i = 0; i < 8; i++)
+		insert(bst_ptr, key[i]);
+	assert(find(bst, 6)->data == 6);
+}
+
+void test_find_should_return_node_with_16_value_if_we_pass_16_in_find(){
+	int key[8] = {12,8,14,6,9,13,15,16}, i;
+	bst = createBSTree();
+	bst_ptr = &bst;
+	for (i = 0; i < 8; i++)
+		insert(bst_ptr, key[i]);
+	assert(find(bst, 16)->data == 16);
+}
+
+void test_find_should_return_NULL_value_if_we_pass_100_in_find(){
+	int key[8] = {12,8,14,6,9,13,15,16}, i;
+	bst = createBSTree();
+	bst_ptr = &bst;
+	for (i = 0; i < 8; i++)
+		insert(bst_ptr, key[i]);
+	assert(find(bst, 100) == NULL);
+}
